@@ -39,6 +39,6 @@ export async function getStaticProps({ preview = false }) {
   const allPosts = await getAllPostsForHome(preview)
   return {
     props: { allPosts, preview },
-    revalidate: 30,
+    revalidate: 3600,
   }
 }
