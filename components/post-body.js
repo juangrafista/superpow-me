@@ -1,13 +1,14 @@
 import BlockContent from '@sanity/block-content-to-react'
 import client from '../lib/sanity'
 import SyntaxHighlighter from 'react-syntax-highlighter'
+import { ocean } from 'react-syntax-highlighter/dist/cjs/styles/hljs'
 
 const BlockRenderer = (props) => {
   const { style } = props.node
 
   if (style === 'h2') {
     return (
-      <h2 className='text-2xl text-red-500 font-bold leading-loose pb-3'>
+      <h2 className='text-2xl text-black-500 font-bold leading-loose pb-3'>
         {props.children}
       </h2>
     )
@@ -30,7 +31,15 @@ const BlockRenderer = (props) => {
   }
   const { language, code } = props.node
   return (
-    <SyntaxHighlighter language={language || 'text'}>{code}</SyntaxHighlighter>
+    <>
+      <SyntaxHighlighter
+        className='rounded-xl shadow-lg p-48'
+        style={ocean}
+        language={language || 'text'}
+      >
+        {code}
+      </SyntaxHighlighter>
+    </>
   )
 
   // Fall back to default handling
