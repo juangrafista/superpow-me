@@ -4,7 +4,7 @@ export default function Intro() {
       <h1 className='text-6xl md:text-8xl font-bold tracking-tighter leading-tight md:pr-8'>
         _super**
       </h1>
-      <h1>Welcome to SuperPow, coding is a superpower</h1>
+      <h1>Coding is a superpower, welcome to superPow!</h1>
     </section>
   )
 }
