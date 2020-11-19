@@ -48,7 +48,7 @@ const BlockRenderer = (props) => {
 
 export default function PostBody({ content }) {
   return (
-    <div className='max-w-2xl mx-auto'>
+    <div className='max-w-3xl mx-auto'>
       <BlockContent
         blocks={content}
         serializers={{ types: { block: BlockRenderer, code: BlockRenderer } }}
