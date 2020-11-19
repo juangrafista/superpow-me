@@ -1,5 +1,6 @@
 import BlockContent from '@sanity/block-content-to-react'
 import client from '../lib/sanity'
+import SyntaxHighlighter from 'react-syntax-highlighter'
 
 const BlockRenderer = (props) => {
   const { style } = props.node
@@ -24,6 +25,14 @@ const BlockRenderer = (props) => {
     )
   }
 
+  if (!props.node || !props.node.code) {
+    return null
+  }
+  const { language, code } = props.node
+  return (
+    <SyntaxHighlighter language={language || 'text'}>{code}</SyntaxHighlighter>
+  )
+
   // Fall back to default handling
   return BlockContent.defaultSerializers.types.block(props)
 }
@@ -33,7 +42,7 @@ export default function PostBody({ content }) {
     <div className='max-w-2xl mx-auto'>
       <BlockContent
         blocks={content}
-        serializers={{ types: { block: BlockRenderer } }}
+        serializers={{ types: { block: BlockRenderer, code: BlockRenderer } }}
         {...client.config()}
       />
     </div>
