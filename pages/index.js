@@ -13,7 +13,12 @@ export default function Index({ allPosts, preview }) {
     <>
       <Layout preview={preview}>
         <Head>
-          <title>superpow | coding</title>
+          <title>superpow | coding </title>
+          <meta
+            name='description'
+            content='Tips and tricks for better coding in React'
+          />
+          <meta name='viewport' content='width=device-width, initial-scale=1' />
         </Head>
         <Container>
           <Intro />

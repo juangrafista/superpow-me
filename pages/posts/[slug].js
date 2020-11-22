@@ -27,7 +27,11 @@ export default function Post({ post, morePosts, preview }) {
             <article>
               <Head>
                 <title>{post.title}</title>
-                {/* <meta property="og:image" content={post.ogImage.url} /> */}
+                <meta
+                  name='viewport'
+                  content='width=device-width, initial-scale=1'
+                />
+                <meta property='og:image' content={post.mainImage.url} />
               </Head>
               <PostHeader
                 title={post.title}

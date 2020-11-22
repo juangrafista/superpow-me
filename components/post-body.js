@@ -1,5 +1,6 @@
 import BlockContent from '@sanity/block-content-to-react'
 import client from '../lib/sanity'
+import Image from 'next/image'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import { ocean } from 'react-syntax-highlighter/dist/cjs/styles/hljs'
 
@@ -33,7 +34,7 @@ const BlockRenderer = (props) => {
   return (
     <>
       <SyntaxHighlighter
-        className='rounded-xl shadow-lg p-48'
+        className='rounded-xl shadow-lg leading-loose mt-8'
         style={ocean}
         language={language || 'text'}
       >
@@ -54,6 +55,7 @@ export default function PostBody({ content }) {
         serializers={{ types: { block: BlockRenderer, code: BlockRenderer } }}
         {...client.config()}
       />
+      <prev>{JSON.stringify(content, null, 2)}</prev>
     </div>
   )
 }
