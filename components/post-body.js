@@ -16,7 +16,7 @@ const BlockRenderer = (props) => {
   }
 
   if (style === 'normal') {
-    return <p className='text-blue-500 font-bold pb-2'>{props.children}</p>
+    return <p className='text-black-500 font-bold pb-2'>{props.children}</p>
   }
 
   if (style === 'blockquote') {
@@ -55,7 +55,6 @@ export default function PostBody({ content }) {
         serializers={{ types: { block: BlockRenderer, code: BlockRenderer } }}
         {...client.config()}
       />
-      <prev>{JSON.stringify(content, null, 2)}</prev>
     </div>
   )
 }
